@@ -1,10 +1,32 @@
 <?php
 
+$host = $_SERVER['HTTP_HOST'];
+
+$hostLength  = strlen($host);
+
+if($hostLength > 4) {
+    $phpExtension = substr($host, $hostLength - 4, $hostLength);
+    echo $phpExtension;
+}
+
+/*$hosts = array(
+    'sigudang.appspot.com',
+    'http://sigudang.appspot.com/',
+    'https://sigudang.appspot.com/',
+    'www.sigudang.com',
+    'http://www.sigudang.com/',
+    'https://www.sigudang.com/',
+);
+
+if (in_array($host, $hosts)) {
+    header('Location: https://sigudang.com/');
+}
+
 session_start();
 
 if( isset($_SESSION['user_id']) ){
 	header("Location: /");
-}
+}*/
 
 require 'database.php';
 
