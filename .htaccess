@@ -1,6 +1,14 @@
-<IfModule mod_rewrite.c>
-  RewriteEngine on
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}\.php -f
-  RewriteRule ^(.*)$ $1.php
-</IfModule>
+Options -MultiViews
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} -d [OR]
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [NC]
+
+RewriteCond %{REQUEST_URI} ^/(.+?)/$
+RewriteCond %{DOCUMENT_ROOT}/%1\.html -f
+RewriteRule ^ /%1.html [L]
+
+RewriteCond %{REQUEST_URI} ^/(.+?)/$
+RewriteCond %{DOCUMENT_ROOT}/%1\.php -f
+RewriteRule ^ /%1.php [L]
