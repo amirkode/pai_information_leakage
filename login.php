@@ -1,13 +1,31 @@
 <?php
 
-$host = $_SERVER['HTTP_HOST'];
+/*if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $link = "https";
+else
+    $link = "http";
 
-$hostLength  = strlen($host);
+// Here append the common URL characters.
+$link .= "://";
+
+// Append the host(domain name, ip) to the URL.
+$link .= $_SERVER['HTTP_HOST'];
+
+// Append the requested resource location to the URL
+$link .= $_SERVER['REQUEST_URI'];
+
+$hostLength  = strlen($link);
 
 if($hostLength > 4) {
-    $phpExtension = substr($host, $hostLength - 4, $hostLength);
+    $phpExtension = substr($link, $hostLength - 4, $hostLength);
+
+    if(strcmp($phpExtension, ".php") == 0){
+        $headerLocationNew =  substr($link, 0, $hostLength - 4);
+
+        header('Location: '.$headerLocationNew);
+    }
     echo $phpExtension;
-}
+}*/
 
 /*$hosts = array(
     'sigudang.appspot.com',
