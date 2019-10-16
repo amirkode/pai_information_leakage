@@ -1,6 +1,6 @@
 <?php
 
-/*if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
     $link = "https";
 else
     $link = "http";
@@ -25,7 +25,7 @@ if($hostLength > 4) {
         header('Location: '.$headerLocationNew);
     }
     echo $phpExtension;
-}*/
+}
 
 /*$hosts = array(
     'sigudang.appspot.com',
