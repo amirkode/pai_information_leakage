@@ -44,8 +44,8 @@ if( isset($_SESSION['user_id']) ){
 	<?php else: ?>
 
 		<h1>Please Login or Register</h1>
-		<a href="login.php">Login</a> or
-		<a href="register.php">Register</a>
+		<a href="login">Login</a> or
+		<a href="register">Register</a>
 
 	<?php endif; ?>
 
